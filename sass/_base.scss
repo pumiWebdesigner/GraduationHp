@@ -1,31 +1,26 @@
 @use "sass:map";
-
-//ほぼ固定の要素
-//変数
+// フォントなどの基本的な設定
 
 // 色
-$color-main: #3ea1d1;
-$color-font: #333333;
-
-// フォント
-// $font-family-base: Noto Serif JP, serif;
-//フォントサイズ
-// $font-size-base: 30px;
-// $font-weight-base: 600; //Light:300,Normal(Regular):400,Medium:500,SemiBold:600,Bold:700
-
-// $line-height-base: 1.45;
+$color-font: #393939;
+$color-background: #fff;
+$color-main: #1391e6;
+$color-accent: #ee5a6d;
+// $color-active: #f18900;
+// $color-disable: #b2b2b2;
+// $color-gradation: linear-gradient(180deg, #f8b819 0%, #f0d320 100%);
 
 // ブレークポイント
 $sp-size: 767px;
-// マップ型変数breakpointsを定義
+$pc-size: 1024px;
 $breakpoints: (
   "sp": "screen and (max-width: #{$sp-size})",
-  "pc": "screen and (min-width: #{($sp-size + 1px)})",
+  "tab": "screen and (min-width: #{$sp-size + 1}) and (max-width: #{$pc-size})",
+  "pc": "screen and (min-width:  #{($pc-size + 1px)})",
+  // "sp": "screen and (max-width: #{$sp-size})",
+  // "pc": "screen and (min-width: #{($sp-size + 1px)})",,,,
 ) !default;
-
-// メディアクエリー
 @mixin mq($breakpoint: sp) {
-  // @media #{map-get($breakpoints, $breakpoint)} {//map-getはいずれ非推奨になる
   @media #{map.get($breakpoints, $breakpoint)} {
     @content;
   }
@@ -33,36 +28,18 @@ $breakpoints: (
 
 // 余白
 // 画面を縮めていった時に、両側が潰れて窮屈にならないためのpadding
-$padding-pc: 40px;
-$padding-sp: 16px;
+$header-padding-pc: 40px;
+$header-padding-sp: 20px;
+$section-padding-pc: 40px;
+$section-padding-sp: 20px;
+
 // ヘッダー高さ
-$header-height-pc: 70px;
+$header-height-pc: 80px;
 $header-height-sp: 60px;
 
 // レイアウト幅
 // PC画面の最大幅（ユーザーに見せるエリア）
-$layout-width-canvas: 1280px;
-//PC画面の最大幅（要素を設置できるエリア）
-$layout-width-inner: calc($layout-width-canvas - $padding-pc * 2);
-$max-width-inner: 1280px;
-
-// sectionタグに設定する場合は、$max-widthの設定不要
-// innerタグに設定する場合は、親要素でpadding設定していれば$max-widthの設定不要
-// 設定していなければ、親要素のmax-widthからpadding-inner✕2を引いた値を設定
-// （これが.innerのmax-widthとなる）
-// @mixin inner($padding-inline: 10, $max-width: $layout-width-canvas) {
-//   // width: 100%; //display: block;の初期値なので記述不要
-
-//   // window幅が過大な時のためのmax-width
-//   // このmax-widthは自分要素を基準とする、子要素のwidth基準にするならpaddingを足した値にする
-//   max-width: $max-width;
-//   // 中央寄せのためのmargin
-//   margin-inline: auto;
-//   // ↑.innerの外側
-//   // ↓.innerの内側
-//   // window幅が狭い時に窮屈にならないためのpadding
-//   padding-inline: $padding-inline;
-// }
+$max-width: 1280px;
 
 // 階層
 $layer: (
@@ -81,7 +58,3 @@ $button-border-size: 2px;
 // $color-disable: #b2b2b2;
 // $color-background: #f3f3f3;
 // $color-gradation: linear-gradient(180deg, #f8b819 0%, #f0d320 100%);
-
-// $font-family-japanese: "游ゴシック体", "Yu Gothic", yugothic, sans-serif;
-// $font-family-english: "Montserrat", sans-serif;
-// $font-family-base: $font-family-japanese;

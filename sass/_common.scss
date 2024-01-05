@@ -1,8 +1,14 @@
 @use "base";
+// ボタンなどの共通パーツ
+
 a {
   font-weight: bold;
   text-decoration: none;
+  // text-decoration: underline;
   transition: 0.2s ease-in-out;
+  &:hover {
+    color: base.$color-main;
+  }
 }
 
 //ボーダーボックス
@@ -11,15 +17,22 @@ a {
 *::after {
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 body {
-  font-family: Noto Serif JP;
-  font-size: 30px;
+  // font-family: Noto Sans CJK JP, sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  // , sans-serif;
+  // ゴシック体： sans-serif; 明朝体：serif;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: normal;
-  color: base.$color-font;
-  // background-color: base.$color-background;
+  // line-height: 160%;
+  color: #393939;
+  background-color: base.$color-background;
 }
 // 非表示設定
 .hidden-sp {
@@ -39,14 +52,17 @@ body {
   margin-inline: auto;
 
   // 幅が過大な時のためのmax-width
-  max-width: base.$layout-width-canvas; // max-width: 1280px;
+  max-width: base.$max-width;
 
   // window幅が狭い時に窮屈にならないためのpadding
   @include base.mq(pc) {
-    padding-inline: base.$padding-pc;
+    padding-inline: base.$section-padding-pc;
+  }
+  @include base.mq(tab) {
+    padding-inline: base.$section-padding-pc;
   }
   @include base.mq(sp) {
-    padding-inline: base.$padding-sp;
+    padding-inline: base.$section-padding-sp;
   }
 }
 
@@ -78,11 +94,14 @@ body {
 
 .util-link {
   border: 1px solid currentColor;
+  border-radius: 40px;
+  box-shadow: 0px 4px 0px 0px currentColor;
+
   color: base.$color-main;
   display: block;
-  margin-inline: auto;
-  // font-family: base.$font-family-english;
+  // display: inline-block;
 
+  margin-inline: auto;
   font-size: 14px;
   font-weight: 300;
   line-height: 170%;
@@ -92,6 +111,7 @@ body {
   padding: 11px 4px 10px;
   text-align: center;
   transition: background-color 0.2s, color 0.2s;
+  background: #fff;
 
   &:hover {
     background: base.$color-main;
@@ -142,7 +162,9 @@ img {
 .section {
   //前のsectionを意識してmargin-top設定,margin-bottomは次の要素のmargin-topで対処（相殺を考慮）
   margin-top: 160px;
-
+  @include base.mq(sp) {
+    margin-top: 95px;
+  }
   //子要素のwidth,heightを意識してpadding設定
   // padding-block: 20px;
 }
