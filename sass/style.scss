@@ -8,7 +8,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: base.$header-height-pc;
+  @include base.mq(sp) {
+    height: base.$header-height-sp;
+  }
   opacity: 0.85;
   background: #fff;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
@@ -17,14 +20,21 @@
   max-width: base.$max-width;
   margin-inline: auto;
   padding-inline: base.$header-padding-pc;
+  @include base.mq(sp) {
+    padding-left: base.$header-padding-sp;
+    padding-right: 17px;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header__left-wrapper {
-  width: 280px;
-  display: flex;
-  align-items: center;
+.header__left {
+  .header__left-wrapper {
+    width: 280px;
+    display: flex;
+    align-items: center;
+  }
+
   .header__icon {
     width: 34px;
     height: 32px;
@@ -37,82 +47,88 @@
 }
 .header__right {
   display: flex;
-}
-.header__nav {
-  padding-top: 16px;
-  padding-bottom: 10px;
-  height: base.$header-height-pc;
-  display: flex;
-  gap: 24px;
-}
-.header__nav--wrapper {
-  color: #393939;
-  &:hover {
-    color: base.$color-main;
-    .header__nav--text::after {
-      transform: translateX(-50%) scaleX(1);
+  .header__nav {
+    @include base.mq(sp) {
+      display: none;
+    }
+    padding-top: 16px;
+    padding-bottom: 10px;
+    height: base.$header-height-pc;
+    display: flex;
+    gap: 24px;
+  }
+  .header__nav--wrapper {
+    color: #393939;
+    &:hover {
+      color: base.$color-main;
+      .header__nav--text::after {
+        transform: translateX(-50%) scaleX(1);
+      }
     }
   }
-}
-.header__nav--icon {
-  width: 24px;
-  height: 24px;
-  margin-inline: auto;
-  display: grid;
-  place-items: center;
-  svg {
+  .header__nav--icon {
+    width: 24px;
+    height: 24px;
+    margin-inline: auto;
     display: grid;
     place-items: center;
-    path {
-      fill: currentColor;
+    svg {
+      display: grid;
+      place-items: center;
+      path {
+        fill: currentColor;
+      }
     }
   }
-}
-.header__nav--text {
-  margin-top: 7px;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 700;
-  position: relative;
-  padding-bottom: 7px;
-  position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%) scaleX(0);
-    width: 20px;
-    height: 2px;
-    background-color: currentColor;
-    transition: transform 0.2s;
-  }
-}
-.header__info {
-  padding-top: 10px;
-  margin-left: 32px;
-  text-align: right;
-  .header__address {
-    font-size: 12px;
-    font-weight: 500;
-  }
-  .header__tel {
-    margin-top: -3px;
-    display: flex;
-    color: #1391e6;
-    width: 261px;
-    height: 48px;
-  }
-  .header__tel--icon {
-    width: 28px;
-    height: 28px;
-    padding-top: 8px;
-  }
-  .header__tel--number {
-    font-size: 32px;
+  .header__nav--text {
+    margin-top: 7px;
+    text-align: center;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: -0.64px;
-    margin-left: 4px;
+    position: relative;
+    padding-bottom: 7px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%) scaleX(0);
+      width: 20px;
+      height: 2px;
+      background-color: currentColor;
+      transition: transform 0.2s;
+    }
+  }
+  .header__info {
+    @include base.mq(sp) {
+      display: none;
+    }
+    padding-top: 10px;
+    margin-left: 32px;
+    text-align: right;
+    .header__address {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .header__tel {
+      margin-top: -3px;
+      display: flex;
+      color: #1391e6;
+      width: 261px;
+      height: 48px;
+    }
+    .header__tel--icon {
+      width: 28px;
+      height: 28px;
+      padding-top: 8px;
+    }
+    .header__tel--number {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.64px;
+      margin-left: 4px;
+    }
   }
 }
 
@@ -121,32 +137,28 @@
     display: none;
   }
   display: block;
-  width: 30px;
-  height: 18px;
-  margin-block: 21px; //paddingだとbarのtopがpaddingの先になってしまう
+  width: 32px;
+  height: 32px;
+  margin-block: 14px; //paddingだとbarのtopがpaddingの先になってしまう
   margin-left: auto;
   position: relative;
   cursor: pointer;
 }
 .drawer-bar {
-  background-color: base.$color-main;
-  background-color: base.$color-main;
-  border-radius: 4px;
   display: block;
-  height: 2px;
-  left: 0;
+  // width: 27px;
+  // height: 2px;
+  left: 3px;
   position: absolute;
   transition: 0.3s;
-  width: 30px;
-  //   z-index: 1;
   &:nth-child(1) {
-    top: 0;
-  }
-  &:nth-child(2) {
     top: 8px;
   }
+  &:nth-child(2) {
+    top: 15px;
+  }
   &:nth-child(3) {
-    top: 16px;
+    top: 22px;
   }
   .is-open & {
     &:nth-child(1) {
@@ -162,6 +174,38 @@
     }
   }
 }
+// .drawer-bar {
+//   background-color: base.$color-main;
+//   border-radius: 4px;
+//   display: block;
+//   width: 27px;
+//   height: 2px;
+//   left: 0;
+//   position: absolute;
+//   transition: 0.3s;
+//   &:nth-child(1) {
+//     top: 0;
+//   }
+//   &:nth-child(2) {
+//     top: 8px;
+//   }
+//   &:nth-child(3) {
+//     top: 16px;
+//   }
+//   .is-open & {
+//     &:nth-child(1) {
+//       transform: rotate(45deg);
+//       top: 8px;
+//     }
+//     &:nth-child(2) {
+//       display: none;
+//     }
+//     &:nth-child(3) {
+//       transform: rotate(-45deg);
+//       top: 8px;
+//     }
+//   }
+// }
 .firstview {
   @include base.mq(pc) {
     margin-top: base.$header-height-pc;

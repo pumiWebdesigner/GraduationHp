@@ -153,6 +153,11 @@ img {
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
 }
+@media screen and (max-width: 767px) {
+  .header {
+    height: 60px;
+  }
+}
 
 .header__inner {
   max-width: 1280px;
@@ -168,8 +173,14 @@ img {
       -ms-flex-align: center;
           align-items: center;
 }
+@media screen and (max-width: 767px) {
+  .header__inner {
+    padding-left: 20px;
+    padding-right: 17px;
+  }
+}
 
-.header__left-wrapper {
+.header__left .header__left-wrapper {
   width: 280px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -178,11 +189,11 @@ img {
       -ms-flex-align: center;
           align-items: center;
 }
-.header__left-wrapper .header__icon {
+.header__left .header__icon {
   width: 34px;
   height: 32px;
 }
-.header__left-wrapper .header__logo {
+.header__left .header__logo {
   width: 225px;
   height: 30px;
   margin-left: 11px;
@@ -193,8 +204,7 @@ img {
   display: -ms-flexbox;
   display: flex;
 }
-
-.header__nav {
+.header__right .header__nav {
   padding-top: 16px;
   padding-bottom: 10px;
   height: 80px;
@@ -203,34 +213,36 @@ img {
   display: flex;
   gap: 24px;
 }
-
-.header__nav--wrapper {
+@media screen and (max-width: 767px) {
+  .header__right .header__nav {
+    display: none;
+  }
+}
+.header__right .header__nav--wrapper {
   color: #393939;
 }
-.header__nav--wrapper:hover {
+.header__right .header__nav--wrapper:hover {
   color: #1391e6;
 }
-.header__nav--wrapper:hover .header__nav--text::after {
+.header__right .header__nav--wrapper:hover .header__nav--text::after {
   -webkit-transform: translateX(-50%) scaleX(1);
           transform: translateX(-50%) scaleX(1);
 }
-
-.header__nav--icon {
+.header__right .header__nav--icon {
   width: 24px;
   height: 24px;
   margin-inline: auto;
   display: grid;
   place-items: center;
 }
-.header__nav--icon svg {
+.header__right .header__nav--icon svg {
   display: grid;
   place-items: center;
 }
-.header__nav--icon svg path {
+.header__right .header__nav--icon svg path {
   fill: currentColor;
 }
-
-.header__nav--text {
+.header__right .header__nav--text {
   margin-top: 7px;
   text-align: center;
   font-size: 11px;
@@ -239,7 +251,7 @@ img {
   padding-bottom: 7px;
   position: relative;
 }
-.header__nav--text::after {
+.header__right .header__nav--text::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -254,17 +266,21 @@ img {
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;
 }
-
-.header__info {
+.header__right .header__info {
   padding-top: 10px;
   margin-left: 32px;
   text-align: right;
 }
-.header__info .header__address {
+@media screen and (max-width: 767px) {
+  .header__right .header__info {
+    display: none;
+  }
+}
+.header__right .header__info .header__address {
   font-size: 12px;
   font-weight: 500;
 }
-.header__info .header__tel {
+.header__right .header__info .header__tel {
   margin-top: -3px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -273,12 +289,12 @@ img {
   width: 261px;
   height: 48px;
 }
-.header__info .header__tel--icon {
+.header__right .header__info .header__tel--icon {
   width: 28px;
   height: 28px;
   padding-top: 8px;
 }
-.header__info .header__tel--number {
+.header__right .header__info .header__tel--number {
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -0.64px;
@@ -287,9 +303,9 @@ img {
 
 .header__hamburger-icon {
   display: block;
-  width: 30px;
-  height: 18px;
-  margin-block: 21px;
+  width: 32px;
+  height: 32px;
+  margin-block: 14px;
   margin-left: auto;
   position: relative;
   cursor: pointer;
@@ -301,25 +317,20 @@ img {
 }
 
 .drawer-bar {
-  background-color: #1391e6;
-  background-color: #1391e6;
-  border-radius: 4px;
   display: block;
-  height: 2px;
-  left: 0;
+  left: 3px;
   position: absolute;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  width: 30px;
 }
 .drawer-bar:nth-child(1) {
-  top: 0;
-}
-.drawer-bar:nth-child(2) {
   top: 8px;
 }
+.drawer-bar:nth-child(2) {
+  top: 15px;
+}
 .drawer-bar:nth-child(3) {
-  top: 16px;
+  top: 22px;
 }
 .is-open .drawer-bar:nth-child(1) {
   -webkit-transform: rotate(45deg);
