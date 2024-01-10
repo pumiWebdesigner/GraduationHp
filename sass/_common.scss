@@ -67,63 +67,58 @@ body {
   }
 }
 
-.util-title {
-  // font-family: base.$font-family-english;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 100%;
+// .util-title {
+//   // font-family: base.$font-family-english;
+//   font-size: 40px;
+//   font-weight: 600;
+//   line-height: 100%;
+//   text-align: center;
+//   // letter-spacing: 3.8px;//baseで設定してない、共通部品として設定
+//   padding-bottom: 24px;
+//   position: relative;
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     bottom: 0;
+//     width: 60px;
+//     height: 1px;
+//     background: base.$color-main;
+//   }
+//   @include base.mq(sp) {
+//     font-size: 30px;
+//     padding-bottom: 28px;
+//     font-size: 30px;
+//   }
+// }
+.util__link {
+  padding: 11px 46px;
+  border-radius: 24px;
+  border: 1px solid base.$color-main;
+  background: #fff;
+  color: base.$color-main;
+  display: inline-block;
   text-align: center;
-  // letter-spacing: 3.8px;//baseで設定してない、共通部品として設定
-  padding-bottom: 24px;
   position: relative;
   &::after {
-    content: "";
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 60px;
-    height: 1px;
-    background: base.$color-main;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    background: url("../img/arrow-btn-main.svg");
+    content: "";
+    width: 12px;
+    height: 12px;
   }
-  @include base.mq(sp) {
-    font-size: 30px;
-    padding-bottom: 28px;
-    font-size: 30px;
-  }
-}
-
-.util-link {
-  border: 1px solid currentColor;
-  border-radius: 40px;
-  box-shadow: 0px 4px 0px 0px currentColor;
-
-  color: base.$color-main;
-  display: block;
-  // display: inline-block;
-
-  margin-inline: auto;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 170%;
-  letter-spacing: 0.02px;
-
-  width: 158px;
-  padding: 11px 4px 10px;
-  text-align: center;
   transition: background-color 0.2s, color 0.2s;
-  background: #fff;
-
   &:hover {
+    color: #fff;
     background: base.$color-main;
-    color: #fefefe;
+    background: url("../img/arrow-btn-white.svg");
   }
   @include base.mq(sp) {
-    font-size: 18px;
-    margin: 0 auto;
-    max-width: 268px;
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding: 9px 40px;
   }
 }
 
@@ -160,19 +155,19 @@ img {
 //   }
 // }
 
-.section {
-  //前のsectionを意識してmargin-top設定,margin-bottomは次の要素のmargin-topで対処（相殺を考慮）
-  margin-top: 160px;
-  @include base.mq(sp) {
-    margin-top: 95px;
-  }
-  //子要素のwidth,heightを意識してpadding設定
-  // padding-block: 20px;
-}
+// .section {
+//   //前のsectionを意識してmargin-top設定,margin-bottomは次の要素のmargin-topで対処（相殺を考慮）
+//   margin-top: 160px;
+//   @include base.mq(sp) {
+//     margin-top: 95px;
+//   }
+//   //子要素のwidth,heightを意識してpadding設定
+//   // padding-block: 20px;
+// }
 
-.content {
-  margin-top: 64px;
-}
+// .content {
+//   margin-top: 64px;
+// }
 
 // table {
 //   border-collapse: collapse; //枠線の重複を防ぐ
