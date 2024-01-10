@@ -1,4 +1,5 @@
 @use "base";
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap");
 // ボタンなどの共通パーツ
 
 a {
@@ -24,6 +25,7 @@ html {
 body {
   // font-family: Noto Sans CJK JP, sans-serif;
   font-family: "M PLUS Rounded 1c", sans-serif;
+
   // , sans-serif;
   // ゴシック体： sans-serif; 明朝体：serif;
   font-size: 14px;
