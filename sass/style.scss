@@ -4,134 +4,115 @@
 @use "header";
 @use "mv";
 @use "concept";
+@use "recommend";
 
-.inline-block {
-  display: inline-block;
+.inner {
+  padding-inline: 140px;
 }
-.color-accent {
-  color: #ee5a6d;
-}
-.recommend {
-  margin-top: 225px;
+.medical {
+  margin-top: 137px;
   text-align: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
   @include base.mq(sp) {
     margin-top: 97px;
   }
-}
-
-.util__title {
-  color: #393939;
-  text-align: center;
-  font-family: "M PLUS Rounded 1c", sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding-inline: 95px;
-  display: inline-block;
   position: relative;
-  @include base.mq(sp) {
-    text-align: center;
-    font-size: 20px;
-    padding-inline: 65px;
-  }
-  &::before,
   &::after {
     position: absolute;
-    top: 9px;
-    content: "";
-    color: base.$color-main;
-    background: url("../img/title-deco.svg");
-    width: 67px;
-    height: 20px;
-    @include base.mq(sp) {
-      width: 49px;
-      height: 13px;
-      background: url("../img/sp/title-deco-sp.svg");
-    }
-  }
-  &::before {
+    top: 0;
     left: 0;
-    @include base.mq(sp) {
-      left: 1px;
-    }
-  }
-  &::after {
-    right: 3px;
-    @include base.mq(sp) {
-      right: 1px;
-    }
+    background: url("../img/medical-bg.png") no-repeat;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
   }
 }
 
-.recommend__list {
-  margin-top: 56px;
+.medical__list {
+  margin-top: 60px;
   display: flex;
-  gap: 61px;
+  justify-content: space-between;
+  $max-clamp: 80px;
+  $min-clamp: 20px;
+  gap: clamp($min-clamp, calc($max-clamp / base.$max-width * 100vw), $max-clamp);
+}
+
+.medical__card {
+  position: relative;
+  &:nth-last-child(1) {
+    .medical__card--txt-sub {
+      line-height: 28px; /* 175% */
+    }
+  }
+}
+
+.medical__card--img {
+  width: 460px;
+  height: 290px;
+
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    content: "";
+  }
+}
+
+.medical__card--txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
   justify-content: center;
-  @include base.mq(sp) {
-    margin-top: 39px;
-    flex-direction: column;
-    align-items: center;
-    gap: 57px;
-  }
-}
-.recommend__item {
-  width: 281px;
+  align-items: center;
+  flex-direction: column;
 }
 
-.recommend__number {
-  width: 182px;
-  height: 32px;
-  margin-inline: auto;
-  @include base.mq(sp) {
-    width: 177px;
-  }
-}
-
-.recommend__img {
-  width: 220px;
-  height: 220px;
-  margin-top: 16px;
-  margin-inline: auto;
-  @include base.mq(sp) {
-    margin-top: 12px;
-  }
-}
-
-.recommend__text--main {
+.medical__card--txt-main {
   color: #fff;
-  display: grid;
-  place-items: center;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 1.6px;
-
-  width: 276px;
-  height: 44px;
-  border-radius: 22px;
-  background: base.$color-main;
-  margin-top: -21px;
-  margin-left: 2px;
+  letter-spacing: 2.24px;
+  padding-bottom: 22px;
   position: relative;
   &::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -22px;
-    background: url("../img/recommend-polygon.svg") no-repeat;
-    width: 20px;
-    height: 26px;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #fff;
     content: "";
-    @include base.mq(sp) {
-      margin-left: 3px;
-    }
   }
 }
 
-.recommend__text--sub {
-  width: 284px;
-  line-height: 24px; /* 171.429% */
-  margin-top: 34px;
-  margin-left: -1px;
+.medical__card--txt-sub {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.28px;
+  margin-top: 20px;
+}
+
+.medical__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px; /* 200% */
+  margin-top: 60px;
+  background: #fff;
+  padding-top: 36px;
+  padding-inline: 40px;
+  padding-bottom: 35px;
   text-align: left;
 }

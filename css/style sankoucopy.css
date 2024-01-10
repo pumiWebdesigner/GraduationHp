@@ -64,6 +64,65 @@ body {
   }
 }
 
+.inline-block {
+  display: inline-block;
+}
+
+.color-accent {
+  color: #ee5a6d;
+}
+
+.util__title {
+  color: #393939;
+  text-align: center;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding-inline: 95px;
+  display: inline-block;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .util__title {
+    text-align: center;
+    font-size: 20px;
+    padding-inline: 65px;
+  }
+}
+.util__title::before, .util__title::after {
+  position: absolute;
+  top: 9px;
+  content: "";
+  color: #1391e6;
+  background: url("../img/title-deco.svg");
+  width: 67px;
+  height: 20px;
+}
+@media screen and (max-width: 767px) {
+  .util__title::before, .util__title::after {
+    width: 49px;
+    height: 13px;
+    background: url("../img/sp/title-deco-sp.svg");
+  }
+}
+.util__title::before {
+  left: 0;
+}
+@media screen and (max-width: 767px) {
+  .util__title::before {
+    left: 1px;
+  }
+}
+.util__title::after {
+  right: 3px;
+}
+@media screen and (max-width: 767px) {
+  .util__title::after {
+    right: 1px;
+  }
+}
+
 .util__link {
   padding: 11px 46px;
   border-radius: 24px;
