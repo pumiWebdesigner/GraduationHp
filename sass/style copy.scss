@@ -1,0 +1,263 @@
+@use "sass:map";
+@use "base";
+@use "common";
+@use "header";
+
+.contact {
+  // background: url(../img/contact_bg.png) no-repeat center center / cover;
+
+  textarea {
+    //ブラウザごとに初期値異なるので初期化
+    //特に初期化しないのでコメントアウト
+    appearance: none; //境界線が変わるかも？
+    border: none;
+    font-family: inherit;
+    position: relative;
+    width: 100%;
+    color: base.$color-font;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 170%;
+    padding: 6px 24px 5px 24px;
+    min-height: 122px;
+    resize: vertical;
+  }
+}
+
+.contact__require-label {
+  display: inline-block;
+  color: #e7728e;
+}
+
+input {
+  &[type="text"],
+  &[type="email"] {
+    //ブラウザごとに初期値異なるので初期化
+    //特に初期化しないのでコメントアウト
+    appearance: none; //境界線が変わるかも？
+    border: none;
+    font-family: inherit;
+    // position: relative;
+    width: 100%;
+    color: base.$color-font;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 170%;
+    box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
+    // display: inline-block;
+    // vertical-align: top;
+    height: 40px;
+    @include base.mq(pc) {
+      padding: 6px 24px 5px 24px;
+    }
+    @include base.mq(sp) {
+      padding: 7px 15px;
+    }
+  }
+  &[type="radio"] {
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+    vertical-align: top;
+  }
+
+  &[type="checkbox"] {
+    width: 1px;
+    height: 1px;
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+    vertical-align: top;
+  }
+}
+
+.contact__radio {
+  display: flex;
+}
+.contact__radio-select {
+  position: relative;
+}
+.contact__radio-label {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 170%;
+  padding: 6px 24px 5px 22px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  color: base.$color-main;
+  @include base.mq(sp) {
+    padding: 6px 23px 5px;
+  }
+  .contact__radio-select > input:checked + & {
+    background: base.$color-main;
+    color: #fff;
+  }
+}
+.contact__privacy {
+  @include base.mq(pc) {
+    margin-top: 31px;
+  }
+  @include base.mq(sp) {
+    margin-top: 29px;
+  }
+}
+.contact__privacy-label {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 170%;
+  position: relative;
+  padding-left: 30px;
+  &:before {
+    background: #fff;
+    border: solid 1px base.$color-main;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    @include base.mq(sp) {
+      top: 0;
+    }
+    transition: 0.2s;
+    height: 22px;
+    width: 22px;
+  }
+  &:after {
+    border-bottom: solid 2px #4973ff;
+    border-left: solid 2px #4973ff;
+    content: "";
+    display: block;
+    height: 9px;
+    opacity: 0;
+    position: absolute;
+    transform: rotate(-45deg);
+    transition: 0.2s;
+    width: 17px;
+
+    @include base.mq(pc) {
+      left: 2px;
+      top: 6px;
+    }
+
+    @include base.mq(sp) {
+      left: 3px;
+      top: 6px;
+    }
+    .contact__privacy-input:checked + & {
+      opacity: 1;
+    }
+  }
+}
+.contact__privacy-link {
+  color: base.$color-main;
+  text-decoration: underline;
+  font-weight: 300;
+}
+.contact__button {
+  @include base.mq(pc) {
+    margin-top: 44px;
+  }
+  @include base.mq(sp) {
+    margin-top: 22px;
+  }
+}
+.contact__message {
+  display: none;
+}
+.contact__message -error {
+  display: none;
+}
+
+.footer {
+  padding-block: 38px 10px;
+  @include base.mq(sp) {
+    padding-block: 39px 10px;
+  }
+}
+.footer__logo {
+  margin-inline: auto;
+  // margin-top: 40px;
+  width: 120px;
+}
+.footer__link-list {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  @include base.mq(sp) {
+    margin-top: 23px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 170%;
+}
+
+.footer__sns-list {
+  @include base.mq(pc) {
+    margin-top: 15px;
+  }
+  margin-top: 11px;
+  display: flex;
+  @include base.mq(pc) {
+    gap: 39px;
+  }
+
+  justify-content: center;
+  font-size: 22px;
+  vertical-align: top;
+  color: base.$color-main;
+}
+.fa-twitter {
+  font-size: 22px;
+  @include base.mq(sp) {
+    font-size: 21px;
+  }
+}
+.footer__sns-instagram {
+  @include base.mq(pc) {
+    font-size: 21px;
+  }
+}
+.fa-instagram {
+  @include base.mq(pc) {
+    font-size: 21px;
+  }
+  @include base.mq(sp) {
+    font-size: 22px;
+    margin-left: 39px;
+  }
+}
+.footer__sns-line {
+  @include base.mq(pc) {
+    font-size: 21px;
+  }
+  @include base.mq(sp) {
+    margin-left: 39px;
+    font-size: 22px; //縦方向の場所調整
+  }
+}
+.fa-line {
+  @include base.mq(pc) {
+    font-size: 19px;
+  }
+  @include base.mq(sp) {
+    font-size: 18px; //アイコンサイズ
+  }
+}
+.footer__copyright {
+  text-align: center;
+  margin-top: 24px;
+  @include base.mq(sp) {
+    margin-top: 19px;
+  }
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 170%;
+  letter-spacing: 1px;
+  color: #888888;
+}

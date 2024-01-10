@@ -1,4 +1,6 @@
-{
+$(document).ready(function () {
+  // wow.js（ﾌﾜｯと表示）
+  new WOW().init();
   //ｽﾑｰｽﾞｽｸﾛｰﾙ(aﾀｸﾞ_ｸﾘｯｸ)
   jQuery('a[href^="#"]').on("click", function () {
     if (jQuery(this) === jQuery(".js-open-button")) {
@@ -18,35 +20,73 @@
       300
     );
   });
-}
 
-jQuery(".js-input").on("input", function () {
-  if (jQuery(this).val().trim() === "") {
-    jQuery(this).removeClass("is-active");
-    jQuery(".contact-form__button").removeClass("full-inputs");
-    return;
-  }
-  jQuery(this).addClass("is-active");
-  if (jQuery(".js-input").length === jQuery(".is-active").length) {
-    jQuery(".contact-form__button").addClass("full-inputs");
-  }
-});
-
-//drawer
-jQuery("#js-drawer").on("click", function (e) {
-  e.preventDefault();
-  jQuery(this).toggleClass("is-open");
-  jQuery(".header").toggleClass("drawer-open");
-});
-jQuery(".drawer__nav")
-  .find("a")
-  .on("click", function (e) {
-    e.preventDefault();
-    jQuery(".js-drawer").toggleClass("is-open");
-    jQuery(".drawer__nav").toggleClass("is-open");
-    var href = jQuery(this).attr("href"); // aタグのhref属性を取得
-    window.location.href = href; // href属性のURLへ遷移
+  jQuery(".js-input").on("input", function () {
+    if (jQuery(this).val().trim() === "") {
+      jQuery(this).removeClass("is-active");
+      jQuery(".contact-form__button").removeClass("full-inputs");
+      return;
+    }
+    jQuery(this).addClass("is-active");
+    if (jQuery(".js-input").length === jQuery(".is-active").length) {
+      jQuery(".contact-form__button").addClass("full-inputs");
+    }
   });
+
+  //drawer
+  jQuery("#js-drawer").on("click", function (e) {
+    e.preventDefault();
+    jQuery(this).toggleClass("is-open");
+    jQuery(".header").toggleClass("drawer-open");
+  });
+  jQuery(".drawer__nav")
+    .find("a")
+    .on("click", function (e) {
+      e.preventDefault();
+      jQuery(".js-drawer").toggleClass("is-open");
+      jQuery(".drawer__nav").toggleClass("is-open");
+      var href = jQuery(this).attr("href"); // aタグのhref属性を取得
+      window.location.href = href; // href属性のURLへ遷移
+    });
+
+  const swiper = new Swiper(".swiper", {
+    speed: 0,
+    spaceBetween: 0,
+    // width: 400,
+    loop: true,
+    loopedSlides: 6, //3個目の先に1個目を表示してくれる
+    autoplay: {
+      delay: 200000,
+      // スライドのドラッグ等の操作時でも自動再生を無効にしない：false
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+    // breakpoints: {
+    //   768: {
+    //     spaceBetween: 24,
+    //     width: 274,
+    //   },
+    // },
+    loop: true,
+    direction: "vertical",
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+});
 
 // {
 //   //to-top(ｽｸﾛｰﾙ後にﾎﾞﾀﾝ表示）
@@ -92,7 +132,7 @@ jQuery(".drawer__nav")
 //   });
 // }
 // {
-//   //switer
+//   //swiper
 //   const swiper = new Swiper(".swiper", {
 //     // Optional parameters
 //     //   direction: "vertical",

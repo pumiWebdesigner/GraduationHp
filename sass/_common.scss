@@ -33,6 +33,7 @@ body {
   // line-height: 160%;
   color: #393939;
   background-color: base.$color-background;
+  overflow: hidden;
 }
 // 非表示設定
 .hidden-sp {
@@ -130,7 +131,7 @@ body {
 img {
   width: 100%;
   height: 100%; //高さを可変にする
-  vertical-align: bottom; //画像の下に微妙な余白が出る
+  vertical-align: top; //微妙な余白を消す
 }
 
 // .main-button {
