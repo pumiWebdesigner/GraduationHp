@@ -1035,10 +1035,6 @@ img {
   text-align: left;
 }
 
-.inner {
-  padding-inline: 140px;
-}
-
 .medical {
   margin-top: 137px;
   text-align: center;
@@ -1049,6 +1045,8 @@ img {
 @media screen and (max-width: 767px) {
   .medical {
     margin-top: 97px;
+    padding-top: 117px;
+    padding-bottom: 90px;
   }
 }
 .medical::after {
@@ -1061,6 +1059,20 @@ img {
   content: "";
   z-index: -1;
 }
+@media screen and (max-width: 767px) {
+  .medical::after {
+    background: url("../img/sp/medical-bg-sp.png") no-repeat;
+  }
+}
+
+.medical_inner {
+  padding-inline: 140px;
+}
+@media screen and (max-width: 767px) {
+  .medical_inner {
+    padding-inline: 20px;
+  }
+}
 
 .medical__list {
   margin-top: 60px;
@@ -1072,6 +1084,16 @@ img {
           justify-content: space-between;
   gap: clamp(20px, 6.25vw, 80px);
 }
+@media screen and (max-width: 767px) {
+  .medical__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 39px;
+    gap: 20px;
+  }
+}
 
 .medical__card {
   position: relative;
@@ -1079,11 +1101,24 @@ img {
 .medical__card:nth-last-child(1) .medical__card--txt-sub {
   line-height: 28px; /* 175% */
 }
+@media screen and (max-width: 767px) {
+  .medical__card:nth-last-child(1) .medical__card--txt-sub {
+    line-height: 19px; /* 158.333% */
+  }
+}
 
 .medical__card--img {
   width: 460px;
   height: 290px;
   position: relative;
+}
+@media screen and (max-width: 767px) {
+  .medical__card--img {
+    width: 335px;
+    height: 210px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
 }
 .medical__card--img::after {
   position: absolute;
@@ -1122,9 +1157,14 @@ img {
   color: #fff;
   font-size: 28px;
   font-weight: 700;
-  letter-spacing: 2.24px;
+  letter-spacing: 0.08em;
   padding-bottom: 22px;
   position: relative;
+}
+@media screen and (max-width: 767px) {
+  .medical__card--txt-main {
+    font-size: 20px;
+  }
 }
 .medical__card--txt-main::after {
   position: absolute;
@@ -1134,26 +1174,42 @@ img {
   bottom: 0;
   width: 40px;
   height: 2px;
-  background-color: #fff;
+  border-radius: 30px;
+  background: #fff;
   content: "";
+}
+@media screen and (max-width: 767px) {
+  .medical__card--txt-main::after {
+    width: 30px;
+  }
 }
 
 .medical__card--txt-sub {
   color: #fff;
   font-size: 16px;
   font-weight: 700;
-  letter-spacing: 1.28px;
+  letter-spacing: 0.08em;
   margin-top: 20px;
 }
+@media screen and (max-width: 767px) {
+  .medical__card--txt-sub {
+    font-size: 12px;
+  }
+}
 
-.medical__text {
+.medical__message {
   font-size: 14px;
   font-weight: 500;
   line-height: 28px; /* 200% */
   margin-top: 60px;
   background: #fff;
-  padding-top: 36px;
-  padding-inline: 40px;
-  padding-bottom: 35px;
+  padding: 36px 40px 35px;
   text-align: left;
+}
+@media screen and (max-width: 767px) {
+  .medical__message {
+    margin-top: 21px;
+    line-height: 24px; /* 171.429% */
+    padding: 18px 20px 17px;
+  }
 }
