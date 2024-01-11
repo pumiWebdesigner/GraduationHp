@@ -135,6 +135,11 @@ body {
   -webkit-transition: background-color 0.2s, color 0.2s;
   transition: background-color 0.2s, color 0.2s;
 }
+@media screen and (min-width: 1025px) {
+  .util__link {
+    margin-left: -6px;
+  }
+}
 .util__link::after {
   position: absolute;
   top: 50%;

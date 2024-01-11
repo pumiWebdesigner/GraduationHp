@@ -127,6 +127,9 @@ body {
   display: inline-block;
   text-align: center;
   position: relative;
+  @include base.mq(pc) {
+    margin-left: -6px;
+  }
   &::after {
     position: absolute;
     top: 50%;
