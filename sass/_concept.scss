@@ -5,20 +5,25 @@
 @use "mv";
 
 .concept {
-  margin-top: 60px;
+  margin-top: 54px;
+  padding-top: 180px;
+  padding-bottom: 110px;
   display: flex;
   position: relative;
   &::after {
     position: absolute;
-    top: -180px;
+    top: 0;
     left: 416px;
-    background: url("../img/concept-bg.png");
+    background: url("../img/concept-bg.png") no-repeat;
     width: 100%;
     height: 100%;
     content: "";
     z-index: -1;
   }
   @include base.mq(sp) {
+    margin-top: 60px;
+    padding-top: 0;
+    padding-bottom: 0;
     flex-direction: column-reverse;
     &::after {
       top: 0;
@@ -84,7 +89,7 @@
   }
 }
 
-.concept__content--btn {
+.concept__btn--list {
   font-size: 14px;
   font-weight: 500;
   margin-top: 37px;
