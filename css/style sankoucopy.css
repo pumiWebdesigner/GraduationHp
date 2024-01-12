@@ -79,7 +79,8 @@ body {
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  padding-inline: 95px;
+  padding-left: 95.5px;
+  padding-right: 93px;
   display: inline-block;
   position: relative;
 }
@@ -92,7 +93,7 @@ body {
 }
 .util__title::before, .util__title::after {
   position: absolute;
-  top: 9px;
+  top: 11px;
   content: "";
   color: #1391e6;
   background: url("../img/title-deco.svg");
@@ -104,23 +105,14 @@ body {
     width: 49px;
     height: 13px;
     background: url("../img/sp/title-deco-sp.svg");
+    top: 8px;
   }
 }
 .util__title::before {
   left: 0;
 }
-@media screen and (max-width: 767px) {
-  .util__title::before {
-    left: 1px;
-  }
-}
 .util__title::after {
-  right: 3px;
-}
-@media screen and (max-width: 767px) {
-  .util__title::after {
-    right: 1px;
-  }
+  right: 0;
 }
 
 .util__link {

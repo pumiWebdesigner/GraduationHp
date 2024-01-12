@@ -81,7 +81,8 @@ body {
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  padding-inline: 95px;
+  padding-left: 95.5px;
+  padding-right: 93px;
   display: inline-block;
   position: relative;
   @include base.mq(sp) {
@@ -92,7 +93,7 @@ body {
   &::before,
   &::after {
     position: absolute;
-    top: 9px;
+    top: 11px;
     content: "";
     color: base.$color-main;
     background: url("../img/title-deco.svg");
@@ -102,19 +103,20 @@ body {
       width: 49px;
       height: 13px;
       background: url("../img/sp/title-deco-sp.svg");
+      top: 8px;
     }
   }
   &::before {
     left: 0;
-    @include base.mq(sp) {
-      left: 1px;
-    }
+    // @include base.mq(sp) {
+    //   left: 1px;
+    // }
   }
   &::after {
-    right: 3px;
-    @include base.mq(sp) {
-      right: 1px;
-    }
+    right: 0;
+    // @include base.mq(sp) {
+    //   right: 1px;
+    // }
   }
 }
 
