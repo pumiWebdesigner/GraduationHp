@@ -18,7 +18,7 @@
     <!-- css読み込みの記載 -->
     <link rel="stylesheet" href="./css/animate.css" />
     <link rel="stylesheet" href="./assets/css/swiper.min.css" />
-    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- <link rel="stylesheet" href="./css/reset.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -277,18 +277,28 @@
               お知らせ
               <span>NEWS</span>
             </h2>
-            <div class="mv__news--past">過去のお知らせはこちら</div>
+            <div class="mv__news--past">
+              <a href="#"> 過去のお知らせはこちら </a>
+            </div>
           </div>
           <div class="mv__news--body">
             <time class="mv__news--time hidden-sp" datetime="2021-01-01">2021.01.01</time>
             <time class="mv__news--time hidden-pc" datetime="2021-01-01">2021/01/01</time>
             <div class="mv__news--title">年末年始の営業時間のお知らせ</div>
-            <div class="mv__news--arrow"><img src="./img/arrow-right.svg" alt="" /></div>
+            <div class="mv__news--arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M1 8H15" stroke="#393939" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M8.39453 1L15.0001 8L8.39453 15" stroke="#393939" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
           </div>
         </div>
 
         <div class="mv__schedule">
-          <img src="./img/mv-schedule.png" alt="" />
+          <picture>
+            <source media="(min-width: 768px)" srcset="./img/mv-schedule.png" />
+            <img src="./img/sp/mv-schedule-sp.png" alt="" />
+          </picture>
         </div>
       </div>
     </section>
@@ -302,8 +312,8 @@
           私たちは最新の医療技術を追求すると共に、患者様とのコミュニケーションを大事することで、気軽に通いやすく些細なことでも相談できる「街の掛かり付け医」を目指しております。
           <br />お子様からご高齢の方まで、快適な空間で治療が受けられる場を作り、地域医療に貢献しきたいと考えております。
         </div>
-        <div class="concept__btn--list">
-          <a class="util__link" href="#">当院について</a>
+        <div class="concept__btn">
+          <a class="btn btn--arrow-right" href="#">当院について</a>
         </div>
       </div>
     </section>
@@ -504,7 +514,7 @@
         </article>
       </div>
       <div class="blog__btn--list">
-        <a class="util__link" href="#">スタッフブログ一覧はこちら</a>
+        <a class="btn btn-right" href="#">スタッフブログ一覧はこちら</a>
       </div>
     </section>
 
@@ -632,8 +642,8 @@
         <small>©︎2020-2021 みなみ歯科クリニック</small>
       </div>
       <div class="js-pagetop footer__pagetop is-show">
-        <a href="#"
-          ><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
             <path
               d="M54 28C54 42.3594 42.3594 54 28 54C13.6406 54 2 42.3594 2 28C2 13.6406 13.6406 2 28 2C42.3594 2 54 13.6406 54 28V28Z"
               fill="white"
@@ -643,16 +653,15 @@
               stroke-linejoin="round"
             />
             <path d="M38.4001 28.0001L28.0001 17.6001L17.6001 28.0001" stroke="#1391E6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M28 38.4001V17.6001" stroke="#1391E6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg
-        ></a>
+            <path d="M28 38.4001V17.6001" stroke="#1391E6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
       </div>
     </footer>
+
     <script src="./dist/wow.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="./assets/js/swiper.min.js" defer></script>
     <script src="./js/script.js"></script>
-    <script>
-      new WOW().init();
-    </script>
   </body>
 </html>

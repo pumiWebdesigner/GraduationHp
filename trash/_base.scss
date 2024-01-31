@@ -1,0 +1,19 @@
+// @use "sass:map";
+// @use "../global" as *;
+
+// 余白
+// 画面を縮めていった時に、両側が潰れて窮屈にならないためのpadding
+$header-padding-pc: 40px;
+$header-padding-sp: 20px;
+$section-padding-pc: 40px;
+$section-padding-sp: 20px;
+
+// ヘッダー高さ
+$header-height-pc: 80px;
+$header-height-sp: 60px;
+
+// レイアウト幅
+// PC画面の最大幅（ユーザーに見せるエリア）
+$max-width: 1280px;
+
+$button-border-size: 2px;

@@ -1,16 +1,14 @@
 @use "sass:map";
-@use "base";
-@use "common";
-@use "header";
-@use "mv";
-@use "concept";
-@use "recommend";
-@use "medical";
-@use "blog";
+@use "../global" as *;
+
+// @use "sass:map";
+// @use "../global/variable" as *;
+// @use "../global/mixin" as *;
+// @use "common";
 
 .footer {
   margin-top: 191px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 131px;
   }
 }
@@ -20,7 +18,7 @@
   padding-inline: 140px;
   padding-bottom: 59px;
   position: relative;
-  @include base.mq(sp) {
+  @include mq(sp) {
     padding-top: 15px;
     padding-inline: 10px;
     padding-bottom: 62px;
@@ -33,7 +31,7 @@
     height: 32px;
     content: "";
     background: repeat-x url("../img/footer-wave.svg") left bottom;
-    @include base.mq(sp) {
+    @include mq(sp) {
       background: repeat-x url("../img/footer-wave.svg") left 21px bottom;
     }
   }
@@ -43,10 +41,11 @@
   background: #fff;
   padding-inline: 49px;
   padding-top: 40px;
-  padding-bottom: 34px;
+  padding-bottom: 43px;
   display: flex;
+  justify-content: space-between;
   margin-inline: auto;
-  @include base.mq(sp) {
+  @include mq(sp) {
     padding-inline: 10px;
     width: 355px;
     border-radius: 8px;
@@ -64,7 +63,7 @@
   width: 404px;
   height: 41px;
   margin-left: 37px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 309px;
     height: 33px;
     margin-left: 13px;
@@ -74,8 +73,8 @@
 .footer__address {
   margin-top: 8px;
   display: flex;
-  margin-left: 101px;
-  @include base.mq(sp) {
+  justify-content: center;
+  @include mq(sp) {
     margin-top: 11px;
     margin-left: 30px;
   }
@@ -92,10 +91,10 @@
 }
 
 .footer__tel {
-  margin-top: 17px;
+  margin-top: 18px;
   display: flex;
   margin-left: 109px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 15px;
     margin-left: 38px;
   }
@@ -104,23 +103,22 @@
 .footer__tel--icon {
   width: 28px;
   height: 28px;
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 .footer__tel--number {
-  color: base.$color-main;
+  color: map.get($color, main);
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -0.64px;
   margin-left: 4px;
 }
 .footer__tel--text {
-  color: base.$color-main;
-  margin-top: -3px;
+  color: map.get($color, main);
+  margin-top: -4px;
   font-size: 12px;
   font-weight: 500;
-  margin-left: -5px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: -1px;
     margin-left: -3px;
   }
@@ -134,12 +132,13 @@
 }
 
 .footer__btn {
-  background: base.$color-main;
+  background: map.get($color, main);
+
   padding-top: 16px;
   width: 220px;
   height: 56px;
   border-radius: 30px;
-  border: 1px solid base.$color-main;
+  border: 1px solid map.get($color, main);
   color: #fff;
   display: inline-block;
   text-align: center;
@@ -149,16 +148,16 @@
     background: #fff;
     margin-left: 20px;
     padding-top: 16px;
-    @include base.mq(sp) {
+    @include mq(sp) {
       margin-left: 16px;
       padding-top: 10px;
     }
   }
   &:hover {
-    color: base.$color-main;
+    color: map.get($color, main);
     background: #fff;
   }
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 150px;
     height: 38px;
     padding-top: 9px;
@@ -178,19 +177,19 @@
   width: 30px;
   height: 20px;
   padding-top: 2px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     padding-top: 0;
   }
   &.footer__contact-btn--icon {
     width: 24px;
     height: 24px;
     padding-top: 0;
-    @include base.mq(sp) {
+    @include mq(sp) {
       width: 17px;
       height: 17px;
     }
   }
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 35px;
     height: 20px;
   }
@@ -204,15 +203,15 @@
   margin-left: 2px;
   vertical-align: top;
   &.footer__contact-btn--text {
-    color: base.$color-main;
+    color: map.get($color, main);
     padding-left: 3px;
-    @include base.mq(sp) {
+    @include mq(sp) {
       font-size: 14px;
       font-weight: 400;
       margin-left: 0;
     }
   }
-  @include base.mq(sp) {
+  @include mq(sp) {
     font-size: 14px;
     font-weight: 400;
     margin-left: 0;
@@ -229,11 +228,20 @@
   font-weight: 500;
 }
 .footer__schedule {
-  width: 483px;
-  height: 171px;
-  margin-top: 22px;
-  margin-left: -3px;
-  @include base.mq(sp) {
+  width: 477px;
+  height: 166px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.16);
+  margin-top: 18px;
+  position: relative;
+  z-index: 1000;
+  img {
+    width: 483px;
+    height: 172px;
+    object-fit: none;
+    vertical-align: bottom;
+  }
+  @include mq(sp) {
     width: 341px;
     height: 121px;
     margin-top: 21px;
@@ -246,7 +254,7 @@
   height: 385px;
   margin-top: 12px;
   margin-left: 37px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 315px;
     height: 315px;
     margin-top: 16px;
@@ -255,14 +263,14 @@
 }
 
 .footer__nav {
-  margin-top: 43px;
-  @include base.mq(sp) {
+  margin-top: 44px;
+  @include mq(sp) {
     margin-top: 60px;
   }
 }
 .footer__nev--inner {
   padding-inline: 84px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     padding-inline: 10px;
   }
 }
@@ -270,7 +278,7 @@
 .footer__nav--wrapper {
   display: flex;
   gap: 40px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     display: block;
   }
 }
@@ -279,7 +287,7 @@
 .footer__menu--title {
   font-size: 16px;
   font-weight: 700;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 39px;
   }
 }
@@ -313,7 +321,7 @@
   text-align: center;
   padding-top: 17px;
   margin-left: -4px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     height: 112px;
     padding-top: 19px;
     margin-left: 0;
@@ -335,7 +343,7 @@
   width: 52px;
   height: 52px;
   z-index: 100;
-  @include base.mq(sp) {
+  @include mq(sp) {
     right: 12px;
     bottom: 98px;
   }

@@ -1,10 +1,33 @@
 @use "sass:map";
-@use "base";
-@use "common";
-@use "header";
-@use "mv";
-@use "concept";
-@use "recommend";
-@use "medical";
-@use "blog";
-@use "footer";
+@use "global" as *;
+@use "blocks";
+// @use "common";
+// @use "header";
+// @use "mv";
+// @use "concept";
+// @use "recommend";
+// @use "medical";
+// @use "blog";
+// @use "footer";
+// @use "../global/mixin" as *;
+// @use "../global/variable" as *;
+// @use "../global/reset";
+html {
+  // scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  font-family: map.get($font, util-title);
+  color: map.get($color, main), map.get($color, san-selif);
+
+  // , sans-serif;
+  // ゴシック体： sans-serif; 明朝体：serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  // line-height: 160%;
+  color: map.get($color, text);
+  // background-color: $color-background;
+  overflow: hidden;
+}

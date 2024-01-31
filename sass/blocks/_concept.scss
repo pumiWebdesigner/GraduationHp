@@ -1,11 +1,13 @@
 @use "sass:map";
-@use "base";
-@use "common";
-@use "header";
-@use "mv";
+@use "../global" as *;
+
+// @use "sass:map";
+// @use "../global/variable" as *;
+// @use "../global/mixin" as *;
+// @use "common";
 
 .concept {
-  margin-top: 54px;
+  margin-top: 60px;
   padding-top: 180px;
   padding-bottom: 110px;
   display: flex;
@@ -20,7 +22,7 @@
     content: "";
     z-index: -1;
   }
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 60px;
     padding-top: 0;
     padding-bottom: 0;
@@ -36,7 +38,7 @@
 .concept__img {
   width: 640px;
   height: 438px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 41px;
     width: 334px;
     height: 230px;
@@ -47,7 +49,7 @@
 .concept__content {
   margin-left: 95px;
   width: 407px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-left: 0;
     padding-inline: 20px;
     width: 100%;
@@ -55,15 +57,15 @@
 }
 
 .concept__content--title-sub {
-  color: base.$color-main;
+  color: map.get($color, main);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1.4px;
   margin-top: 35px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     font-size: 11px;
     letter-spacing: 1.1px;
-    margin-top: 110px;
+    margin-top: 111px;
   }
 }
 .concept__content--title-main {
@@ -71,29 +73,29 @@
   font-weight: 700;
   line-height: 44px; /* 157.143% */
   letter-spacing: 2.24px;
-  margin-top: 24px;
-  @include base.mq(sp) {
+  margin-top: 25px;
+  @include mq(sp) {
     font-size: 20px;
     line-height: 32px; /* 160% */
     letter-spacing: 1.6px;
-    margin-top: 14px;
+    margin-top: 13px;
   }
 }
 .concept__content--text {
   font-size: 14px;
   font-weight: 500;
   line-height: 24px; /* 171.429% */
-  margin-top: 36px;
-  @include base.mq(sp) {
+  margin-top: 35px;
+  @include mq(sp) {
     margin-top: 27px;
   }
 }
 
-.concept__btn--list {
+.concept__btn {
   font-size: 14px;
   font-weight: 500;
   margin-top: 37px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     text-align: center;
   }
 }

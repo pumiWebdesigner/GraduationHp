@@ -1,11 +1,13 @@
 @use "sass:map";
-@use "base";
-@use "common";
-@use "header";
+@use "../global" as *;
+// @use "sass:map";
+// @use "../global/variable" as *;
+// @use "../global/mixin" as *;
+// @use "common";
 
 .mv {
   margin-top: 40px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 15px;
   }
 }
@@ -16,7 +18,7 @@
   overflow: hidden;
   position: relative;
   padding-inline: 60px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     height: 447px;
     padding-inline: 20px;
   }
@@ -29,7 +31,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     border-radius: 8px;
   }
   &::after {
@@ -48,7 +50,7 @@
   bottom: -29px;
   left: 37px;
   right: initial;
-  @include base.mq(sp) {
+  @include mq(sp) {
     bottom: -12px;
     left: 7px;
   }
@@ -58,27 +60,28 @@
   background: #c2c2c2;
   width: 8px;
   height: 8px;
-  @include base.mq(sp) {
+  opacity: 1;
+  @include mq(sp) {
     width: 6px;
     height: 6px;
   }
   & + & {
     margin-top: 10px !important;
-    @include base.mq(sp) {
+    @include mq(sp) {
       margin-top: 8px !important;
     }
   }
 }
 
 .swiper-pagination-bullet-active {
-  background: base.$color-main;
+  background: map.get($color, main);
 }
 .swiper-button-prev,
 .swiper-button-next {
   width: 60px;
   height: 60px;
   margin-top: -27px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 40px;
     height: 40px;
     margin-top: -19px;
@@ -87,24 +90,24 @@
 .swiper-button-prev {
   left: 32px;
   background: url(../img/swiper-button-prev.svg) center center / cover;
-  @include base.mq(sp) {
+  @include mq(sp) {
     left: 0;
   }
 }
 .swiper-button-next {
   right: 28px;
   background: url(../img/swiper-button-next.svg) center center / cover;
-  @include base.mq(sp) {
+  @include mq(sp) {
     right: 0;
   }
 }
 
 .mv__message {
   position: absolute;
-  top: 346px;
+  top: 347px;
   left: 122px;
   z-index: 100;
-  @include base.mq(sp) {
+  @include mq(sp) {
     top: 332px;
     left: 40px;
   }
@@ -117,7 +120,7 @@
   letter-spacing: 2.56px;
   display: inline-block;
   position: relative;
-  @include base.mq(sp) {
+  @include mq(sp) {
     font-size: 20px;
     letter-spacing: 1.6px;
   }
@@ -129,7 +132,7 @@
     width: 100%;
     height: 4px;
     background: url("../img/repeat-grid.png");
-    @include base.mq(sp) {
+    @include mq(sp) {
       background: url("../img/sp/repeat-grid-sp.png");
       height: 2px;
       bottom: -3px;
@@ -137,7 +140,7 @@
   }
   &:nth-of-type(2) {
     margin-top: 18px;
-    @include base.mq(sp) {
+    @include mq(sp) {
       margin-top: 13px;
     }
   }
@@ -146,7 +149,8 @@
   width: 92px;
   height: 120px;
   border-radius: 20px 0px 0px 20px;
-  background: base.$color-main;
+  background: map.get($color, main);
+
   position: absolute;
   top: 56px;
   right: 0;
@@ -173,17 +177,19 @@
   margin-top: 18px;
   display: flex;
   justify-content: center;
-  gap: 56px;
-  margin-right: -3px;
-  @include base.mq(sp) {
-    position: relative;
-    margin-top: 131px;
+  gap: 60px;
+  // margin-left: 1px;
+  @include mq(sp) {
+    flex-direction: column-reverse;
+    // position: relative;
+    // margin-top: 131px;
+    gap: 40px;
   }
 }
 
 .mv__news {
   width: 542px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 100%;
     padding-inline: 20px;
   }
@@ -193,30 +199,33 @@
   display: flex;
   padding-bottom: 7px;
   border-bottom: 1px solid currentColor;
+  @include mq(sp) {
+    padding-bottom: 6px;
+  }
 }
 
 .mv__news--top-title {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 2px;
-  margin-left: 12px;
+  margin-left: 13px;
   width: 140px;
   display: flex;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-left: 15px;
   }
   span {
     margin-left: 14px;
-    color: base.$color-main;
+    color: map.get($color, main);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1.2px;
     margin-top: 11px;
-    @include base.mq(sp) {
+    @include mq(sp) {
       font-size: 11px;
       letter-spacing: 1.1px;
       margin-left: 13px;
-      margin-top: 13px;
+      margin-top: 12px;
     }
   }
 }
@@ -226,67 +235,113 @@
   font-size: 12px;
   font-weight: 500;
   text-decoration: underline;
-  text-underline-offset: 4px;
-  margin-top: 7px;
+  text-underline-offset: 3px;
+  margin-top: 8px;
   margin-left: auto;
   margin-right: -1px;
   width: 132px;
-  @include base.mq(sp) {
+  cursor: pointer;
+  @include mq(sp) {
     font-size: 11px;
     margin-top: 9px;
-    margin-right: -8px;
+    margin-right: -11px;
   }
 }
 
 .mv__news--body {
   display: flex;
-  padding-bottom: 9px;
+  align-items: center;
+  // padding-bottom: 9px;
   border-bottom: 1px solid currentColor;
-  @include base.mq(sp) {
-    padding-bottom: 11px;
+  height: 39px;
+  @include mq(sp) {
+    // padding-bottom: 11px;
+  }
+  transition: 0.5s;
+  &:hover {
+    color: map.get($color, main);
+    border-bottom: 1px solid map.get($color, text);
   }
 }
 
 .mv__news--time {
   font-size: 12px;
   font-weight: 500;
-  margin-top: 11px;
+  margin-top: 1px;
   margin-left: 13px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 14px;
     margin-left: 6px;
   }
 }
 
 .mv__news--title {
-  margin-top: 9px;
+  // margin-top: 9px;
   margin-left: 24px;
   font-size: 14px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 12px;
   }
 }
+
 .mv__news--arrow {
-  margin-top: 12px;
+  // margin-top: 8px;
   margin-left: auto;
-  margin-right: 7px;
-  width: 14px;
-  height: 14px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  padding-right: 6px;
+  padding-left: 6px;
+
+  // width: 14px;
+  // height: 14px;
+  // img {
+  //   vertical-align: top;
+  // }
+  @include mq(sp) {
+    margin-top: 9px;
+    margin-right: 4px;
+    width: 16px;
+  }
+  transition: 0.5s;
+
+  .mv__news--body:hover & {
+    transform: translateX(6px);
+    path {
+      stroke: map.get($color, main);
+    }
+  }
 }
 .mv__schedule {
-  width: 484px;
-  height: 172px;
   margin-top: -53px;
-  margin-left: -1px;
+  width: 477px;
+  height: 166px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.16);
   position: relative;
   z-index: 1000;
-  @include base.mq(sp) {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 340px;
-    height: 121px;
-    top: -101px;
+  img {
+    width: 484px;
+    height: 172px;
+    object-fit: none;
+  }
+  @include mq(sp) {
+    width: 335px;
+    height: 116px;
+    margin-inline: auto;
+    margin-top: -42px;
+    // margin-top: -70px;
+    // position: absolute;
+    // bottom: 30px;
+    // // top: -130px;
+    // left: 50%;
+    // transform: translateX(-50%);
+    img {
+      width: 335px;
+      height: 116px;
+      // margin-inline: auto;
+      // width: 484px;
+      // height: 172px;
+      object-fit: none;
+    }
   }
 }

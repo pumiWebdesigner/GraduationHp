@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  // wow.js（ﾌﾜｯと表示）
-  new WOW().init();
   //ｽﾑｰｽﾞｽｸﾛｰﾙ(aﾀｸﾞ_ｸﾘｯｸ)
   jQuery('a[href^="#"]').on("click", function () {
     if (jQuery(this) === jQuery(".js-open-button")) {
@@ -21,18 +19,6 @@ $(document).ready(function () {
     );
   });
 
-  jQuery(".js-input").on("input", function () {
-    if (jQuery(this).val().trim() === "") {
-      jQuery(this).removeClass("is-active");
-      jQuery(".contact-form__button").removeClass("full-inputs");
-      return;
-    }
-    jQuery(this).addClass("is-active");
-    if (jQuery(".js-input").length === jQuery(".is-active").length) {
-      jQuery(".contact-form__button").addClass("full-inputs");
-    }
-  });
-
   //drawer
   jQuery("#js-drawer").on("click", function (e) {
     e.preventDefault();
@@ -50,13 +36,20 @@ $(document).ready(function () {
     });
 
   const swiper = new Swiper(".swiper", {
-    speed: 0,
-    spaceBetween: 0,
-    // width: 400,
     loop: true,
+    // 次の画像を読み込む速さ
+    speed: 1000,
+    spaceBetween: 0,
+    // フワッと切替
+    effect: "fade",
+    fadeEffect: {
+      // 画像が重ならないように制御
+      crossFade: true,
+    },
     loopedSlides: 6, //3個目の先に1個目を表示してくれる
     autoplay: {
-      delay: 200000,
+      // 画像が切り替わるタイミング
+      delay: 3000,
       // スライドのドラッグ等の操作時でも自動再生を無効にしない：false
       disableOnInteraction: false,
     },
@@ -71,16 +64,15 @@ $(document).ready(function () {
     //     width: 274,
     //   },
     // },
-    loop: true,
+    //ページネーションを縦に表示（画像も縦にスライドしてしまうがeffect:fadeで無効化）
     direction: "vertical",
-    // If we need pagination
+    // ボタンタイプのページネーション
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
       clickable: true,
     },
-
-    // Navigation arrows
+    // 左右の矢印アイコン
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -88,8 +80,23 @@ $(document).ready(function () {
   });
 });
 
-// {
-//   //to-top(ｽｸﾛｰﾙ後にﾎﾞﾀﾝ表示）
+// コンタクト
+// jQuery(".js-input").on("input", function () {
+// if (jQuery(this).val().trim() === "") {
+//   jQuery(this).removeClass("is-active");
+//   jQuery(".contact-form__button").removeClass("full-inputs");
+//   return;
+// }
+//   jQuery(this).addClass("is-active");
+//   if (jQuery(".js-input").length === jQuery(".is-active").length) {
+//     jQuery(".contact-form__button").addClass("full-inputs");
+//   }
+// });
+
+// wow.js（ﾌﾜｯと表示）
+// new WOW().init();
+
+// to-top(ｽｸﾛｰﾙ後にﾎﾞﾀﾝ表示）
 //   jQuery(window).on("scroll", function () {
 //     if (100 < jQuery(this).scrollTop()) {
 //       jQuery(".to-top").addClass("is-show");
@@ -98,71 +105,32 @@ $(document).ready(function () {
 //     }
 //     return false;
 //   });
-// }
-// {
-//   //ｱｺｰﾃﾞｨｵﾝ
+
+// ｱｺｰﾃﾞｨｵﾝ;
 //   jQuery(".qa-box__q").on("click", function () {
 //     jQuery(this).next().slideToggle();
 //     jQuery(this).children(".qa-box__icon").toggleClass("is-open");
 //   });
-// }
-// {
-//   //ﾓｰﾀﾞﾙ
-//   jQuery(".js-close-button").on("click", function (e) {
-//     e.preventDefault();
-//     var target = jQuery(this).data("target");
-//     jQuery(target).hide();
-//     return false;
-//   });
-//   jQuery(".js-open-button").on("click", function (e) {
-//     e.preventDefault();
-//     var target = jQuery(this).data("target");
-//     jQuery("." + target).show();
-//     return false;
-//   });
-// }
-// {
-//   //新drawer
-//   jQuery(".js-drawer").on("click", function (e) {
-//     // 今回は効果ないけど、aﾀｸﾞでのページ遷移とかを無効化できる
-//     e.preventDefault();
-//     let targetClass = jQuery(this).attr("data-target");
-//     jQuery("." + targetClass).toggleClass("is-active");
-//     return false;
-//   });
-// }
-// {
-//   //swiper
-//   const swiper = new Swiper(".swiper", {
-//     // Optional parameters
-//     //   direction: "vertical",
-//     loop: true,
 
-//     // If we need pagination
-//     pagination: {
-//       el: ".swiper-pagination",
-//       clickable: "true",
-//     },
+// ﾓｰﾀﾞﾙ;
+// jQuery(".js-close-button").on("click", function (e) {
+//   e.preventDefault();
+//   var target = jQuery(this).data("target");
+//   jQuery(target).hide();
+//   return false;
+// });
+// jQuery(".js-open-button").on("click", function (e) {
+//   e.preventDefault();
+//   var target = jQuery(this).data("target");
+//   jQuery("." + target).show();
+//   return false;
+// });
 
-//     // Navigation arrows
-//     navigation: {
-//       nextEl: ".swiper-button-next",
-//       prevEl: ".swiper-button-prev",
-//     },
-
-//     // And if we need scrollbar
-//     scrollbar: {
-//       el: ".swiper-scrollbar",
-//     },
-//   });
-// }
-// {
-// 旧drawer;
-//   jQuery(".drawer-icon").on("click", function (e) {
-//     e.preventDefault();
-//     jQuery(".drawer-icon").toggleClass("is-active");
-//     jQuery(".drawer-content").toggleClass("is-active");
-//     jQuery(".drawer-background").toggleClass("is-active");
-//     return false;
-//   });
-// }
+//  新drawer
+// jQuery(".js-drawer").on("click", function (e) {
+//   // 今回は効果ないけど、aﾀｸﾞでのページ遷移とかを無効化できる
+//   e.preventDefault();
+//   let targetClass = jQuery(this).attr("data-target");
+//   jQuery("." + targetClass).toggleClass("is-active");
+//   return false;
+// });

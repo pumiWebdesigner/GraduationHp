@@ -1,39 +1,42 @@
 @use "sass:map";
-@use "base";
-@use "common";
-@use "header";
-@use "mv";
-@use "concept";
+@use "../global" as *;
+
+// @use "sass:map";
+// @use "../global/variable" as *;
+// @use "../global/mixin" as *;
+// @use "common";
 
 .recommend {
   margin-top: 116px;
   text-align: center;
-  @include base.mq(sp) {
-    margin-top: 97px;
+  @include mq(sp) {
+    margin-top: 98px;
   }
 }
 
 .recommend__list {
-  margin-top: 56px;
+  margin-top: 58px;
   display: flex;
-  gap: 61px;
+  gap: 60px;
   justify-content: center;
-  @include base.mq(sp) {
-    margin-top: 39px;
+  @include mq(sp) {
+    margin-top: 37px;
     flex-direction: column;
     align-items: center;
     gap: 57px;
   }
 }
 .recommend__item {
-  width: 281px;
 }
 
 .recommend__number {
   width: 182px;
-  height: 32px;
+  .recommend__item:nth-of-type(1) & {
+    width: 177px;
+  }
+  height: 33px;
   margin-inline: auto;
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 177px;
   }
 }
@@ -41,9 +44,9 @@
 .recommend__img {
   width: 220px;
   height: 220px;
-  margin-top: 16px;
+  margin-top: 15px;
   margin-inline: auto;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 12px;
   }
 }
@@ -59,29 +62,35 @@
   width: 276px;
   height: 44px;
   border-radius: 22px;
-  background: base.$color-main;
+  background: map.get($color, main);
   margin-top: -21px;
-  margin-left: 2px;
+  margin-inline: auto;
   position: relative;
   &::after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -22px;
+    bottom: -21px;
     background: url("../img/recommend-polygon.svg") no-repeat;
     width: 20px;
     height: 26px;
     content: "";
-    @include base.mq(sp) {
+    margin-left: 1px;
+    @include mq(sp) {
       margin-left: 3px;
     }
+  }
+  @include mq(sp) {
+    margin-top: -23px;
   }
 }
 
 .recommend__text--sub {
-  width: 284px;
+  width: 281px;
+  .recommend__item:nth-of-type(2) & {
+    width: 284px;
+  }
   line-height: 24px; /* 171.429% */
   margin-top: 34px;
-  margin-left: -1px;
   text-align: left;
 }

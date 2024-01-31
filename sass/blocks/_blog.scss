@@ -1,39 +1,37 @@
 @use "sass:map";
-@use "base";
-@use "common";
-@use "header";
-@use "mv";
-@use "concept";
-@use "recommend";
-@use "medical";
+@use "../global" as *;
+
+// @use "sass:map";
+// @use "../global/variable" as *;
+// @use "../global/mixin" as *;
+// @use "common";
 
 .blog {
-  margin-top: 138px;
+  margin-top: 139px;
   text-align: center;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 99px;
   }
 }
 
 .blog__list {
-  margin-top: 80px;
+  margin-top: 79px;
   display: grid;
   width: 1000px;
   margin-inline: auto;
   grid-template-columns: repeat(3, 1fr);
-  // grid-template-rows: repeat(2, 1fr);
   grid-template-rows: auto 1fr;
   gap: 60px 50px; //縦、横
   place-items: center;
   grid-area: 1 / 1 / 3 / 4; //1行目～3行目に要素を配置⇒行に2要素
-  @include base.mq(sp) {
+  @include mq(sp) {
     display: block;
     margin-top: 46px;
     margin-left: 20px;
   }
 }
 article {
-  @include base.mq(pc) {
+  @include mq(pc) {
     &:nth-of-type(3n + 1) {
       margin-left: 3px;
     }
@@ -45,7 +43,7 @@ article {
       margin-left: -6px;
     }
   }
-  @include base.mq(sp) {
+  @include mq(sp) {
     & + & {
       margin-top: 20px;
     }
@@ -61,10 +59,10 @@ article {
       text-align: center;
       font-size: 16px;
       font-weight: 700;
-      top: 0;
+      top: -1px;
       left: 3px;
       z-index: 2;
-      @include base.mq(sp) {
+      @include mq(sp) {
         font-size: 10px;
         top: 6px;
         left: 1px;
@@ -79,7 +77,7 @@ article {
       background: url("../img/is-new-circle.svg") center center/cover;
       content: "";
       z-index: 1;
-      @include base.mq(sp) {
+      @include mq(sp) {
         width: 40px;
         height: 40px;
         top: -7px;
@@ -92,11 +90,11 @@ article {
   border-radius: 20px;
   overflow: hidden;
   background: #fff;
-  @include base.mq(pc) {
+  @include mq(pc) {
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   }
   text-align: left;
-  @include base.mq(sp) {
+  @include mq(sp) {
     border-radius: 0;
     display: flex;
   }
@@ -105,7 +103,7 @@ article {
 .blog__card--img {
   width: 300px;
   height: 188px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: 133px;
     height: 101px;
   }
@@ -113,7 +111,7 @@ article {
 .blog__card--message {
   width: 300px;
   height: calc(315px - 188px);
-  @include base.mq(sp) {
+  @include mq(sp) {
     width: calc(335px - 133px);
     height: 101px;
   }
@@ -122,16 +120,16 @@ article {
 .blog__card--tag {
   position: absolute;
   z-index: 10;
-  top: -15px;
+  top: -14px;
   left: 24px;
   border-radius: 14px;
-  background: #1391e6;
+  background: map.get($color, main);
   color: #fff;
   font-size: 11px;
   font-weight: 500;
   padding: 6px 12px 5px;
   display: inline-block;
-  @include base.mq(sp) {
+  @include mq(sp) {
     border-radius: 10px;
     font-size: 10px;
     padding: 2px 8px 1px;
@@ -147,7 +145,7 @@ article {
   padding-top: 23px;
   padding-right: 24px;
   padding-left: 24px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     font-size: 14px;
     line-height: 20px; /* 142.857% */
     padding-top: 30px;
@@ -165,7 +163,7 @@ article {
   padding-bottom: 12px;
   margin-left: 24px;
   display: inline-block;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 0;
     margin-left: 10px;
   }
@@ -174,7 +172,7 @@ article {
 .blog__btn--list {
   margin-top: 60px;
   margin-left: 6px;
-  @include base.mq(sp) {
+  @include mq(sp) {
     margin-top: 40px;
     margin-left: 2px;
   }

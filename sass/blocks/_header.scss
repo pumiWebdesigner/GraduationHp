@@ -1,16 +1,19 @@
 @use "sass:map";
-@use "base";
-@use "common";
+@use "../global" as *;
+// @use "sass:map";
+// @use "../global/variable" as *;
+// @use "../global/mixin" as *;
+// @use "common";
 
 .header {
-  z-index: #{map-get(base.$layer, header)};
+  z-index: #{map-get($layer, header)};
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: base.$header-height-pc;
+  height: $header-height-pc;
   @media screen and (max-width: 1200px) {
-    height: base.$header-height-sp;
+    height: $header-height-sp;
   }
   opacity: 0.85;
   background: #fff;
@@ -22,14 +25,14 @@
   position: relative;
 }
 .header__inner {
-  max-width: base.$max-width;
+  max-width: $max-width;
   margin-inline: auto;
-  padding-inline: base.$header-padding-pc;
+  padding-inline: $header-padding-pc;
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media screen and (max-width: 1200px) {
-    padding-left: base.$header-padding-sp;
+    padding-left: $header-padding-sp;
     padding-right: 17px;
   }
   @media screen and (max-width: 374px) {
@@ -49,7 +52,7 @@
 }
 
 .header__icon {
-  width: 34px;
+  // width: 34px;
   height: 32px;
 }
 .header__logo {
@@ -63,7 +66,7 @@
   .header__nav {
     @media screen and (max-width: 1200px) {
       position: absolute;
-      top: base.$header-height-sp;
+      top: $header-height-sp;
       right: -100%;
       background: #0060a0;
       width: 100%;
@@ -79,9 +82,9 @@
 .header__nav--list {
   padding-top: 16px;
   // padding-bottom: 10px;
-  height: base.$header-height-pc;
+  height: $header-height-pc;
   display: flex;
-  gap: 24px;
+  // gap: 24px;
   @media screen and (max-width: 1200px) {
     padding-top: 40px;
     // padding-bottom: 0;
@@ -91,7 +94,8 @@
   }
 }
 .header__nav--item {
-  color: #393939;
+  padding-inline: 12px;
+
   @media screen and (max-width: 1200px) {
     color: #fff;
     width: 254px;
@@ -115,8 +119,8 @@
   }
   &:hover {
     // スマホはホバーアクション無し
-    @include base.mq(pc) {
-      color: base.$color-main;
+    @include mq(pc) {
+      color: map.get($color, main);
       .header__nav--text::after {
         transform: translateX(-50%) scaleX(1);
       }
@@ -131,7 +135,7 @@
   }
 }
 .header__nav--icon {
-  width: 24px;
+  // width: 24px;
   height: 24px;
   margin-inline: auto;
   display: grid;
@@ -157,9 +161,13 @@
   font-size: 11px;
   font-weight: 700;
   position: relative;
-  padding-block: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   // padding-bottom: 7px;
   position: relative;
+  .header__nav--item:nth-of-type(1) & {
+    padding-top: 6px;
+  }
   @media screen and (min-width: 1201px) {
     &::after {
       content: "";
@@ -196,7 +204,7 @@
     display: none;
   }
   padding-top: 10px;
-  margin-left: 32px;
+  margin-left: 20px;
   text-align: right;
   .header__address {
     font-size: 12px;
@@ -205,7 +213,8 @@
   .header__tel {
     margin-top: -3px;
     display: flex;
-    color: #1391e6;
+    color: map.get($color, main);
+
     width: 261px;
     height: 48px;
   }
